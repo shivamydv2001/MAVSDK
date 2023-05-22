@@ -96,6 +96,7 @@ public:
         Mavsdk::ServerComponentType server_component_type, unsigned instance = 0);
     std::shared_ptr<ServerComponent> server_component_by_id(uint8_t component_id);
 
+    Time time{};
     TimeoutHandler timeout_handler;
     CallEveryHandler call_every_handler;
 
@@ -107,7 +108,6 @@ public:
     double timeout_s() const { return _timeout_s; };
 
     MavlinkMessageHandler mavlink_message_handler{};
-    Time time{};
 
 private:
     Mavsdk::ConnectionHandle add_connection(const std::shared_ptr<Connection>&);
@@ -138,8 +138,6 @@ private:
     std::shared_ptr<ServerComponent> _default_server_component{nullptr};
 
     CallbackList<> _new_system_callbacks{};
-
-    Time _time{};
 
     Mavsdk::Configuration _configuration{Mavsdk::Configuration::UsageType::GroundStation};
 

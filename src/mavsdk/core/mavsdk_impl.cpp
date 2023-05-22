@@ -18,7 +18,7 @@ namespace mavsdk {
 
 template class CallbackList<>;
 
-MavsdkImpl::MavsdkImpl() : timeout_handler(_time), call_every_handler(_time)
+MavsdkImpl::MavsdkImpl() : timeout_handler(time), call_every_handler(time)
 {
     LogInfo() << "MAVSDK version: " << mavsdk_version;
 

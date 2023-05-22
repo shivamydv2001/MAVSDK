@@ -6,7 +6,7 @@
 #include "mavlink_include.h"
 #include "mavlink_parameter_client.h"
 #include "mavlink_command_sender.h"
-#include "mavlink_ftp.h"
+#include "mavlink_ftp_client.h"
 #include "mavlink_message_handler.h"
 #include "mavlink_mission_transfer.h"
 #include "mavlink_request_message_handler.h"
@@ -281,7 +281,7 @@ public:
 
     MavlinkMissionTransfer& mission_transfer() { return _mission_transfer; };
 
-    MavlinkFtp& mavlink_ftp() { return _mavlink_ftp; };
+    MavlinkFtpClient& mavlink_ftp_client() { return _mavlink_ftp_client; };
 
     RequestMessage& request_message() { return _request_message; };
 
@@ -390,7 +390,7 @@ private:
 
     MavlinkMissionTransfer _mission_transfer;
     RequestMessage _request_message;
-    MavlinkFtp _mavlink_ftp;
+    MavlinkFtpClient _mavlink_ftp_client;
 
     std::mutex _plugin_impls_mutex{};
     std::vector<PluginImplBase*> _plugin_impls{};
